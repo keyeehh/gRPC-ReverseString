@@ -11,7 +11,7 @@ namespace GrpcServiceExample.ReverseService.ServiceImplementation
     {
         public override Task<Data> Reverse(Data request, ServerCallContext context)
         {
-            var response = new Data() { Str = new string(request.Str.Reverse().ToCharArray()) };
+            var response = new Data() { Str = request.Str.Reverse() };
 
             return Task.FromResult(response);
         }
