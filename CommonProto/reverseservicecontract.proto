@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "GrpcService.Generated";
+
+package proto;
+
+service RevService
+{
+	rpc Reverse(Data) returns (Data) {}
+}
+
+message Data
+{
+	string str = 1;
+}
