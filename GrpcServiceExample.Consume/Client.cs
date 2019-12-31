@@ -34,7 +34,7 @@ namespace GrpcServiceExample.Consume
 
         static string Reverse()
         {
-            Channel channel = new Channel("localhost", 11111, ChannelCredentials.Insecure);
+            Channel channel = new Channel(Common.HOST, Common.CHANNEL, ChannelCredentials.Insecure);
 
             RevService.RevServiceClient client = new RevService.RevServiceClient(channel);
 
