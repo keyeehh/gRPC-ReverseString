@@ -14,7 +14,23 @@ namespace GrpcServiceExample.ReverseService.ServiceImplementation
             var response = new Data() { Str = request.Str.Reverse() };
 
             return Task.FromResult(response);
-        }
+        }   //  Reverse()
+
+        public override async Task GetHandpieceTypes(RequestHandpieces request, IServerStreamWriter<HandpieceType> responseStream, ServerCallContext context)
+        {
+            List<HandpieceType> handpieces = new List<HandpieceType>
+            {
+                new HandpieceType { Gauge = 20, },
+                new HandpieceType { Gauge = 23, },
+                new HandpieceType { Gauge = 25, },
+                new HandpieceType { Gauge = 27, },
+            };
+
+            foreach (var handpiece in handpieces)
+            {
+                await responseStream.WriteAsync(handpiece);
+            }
+        }   //  GetHandpieceGauges()
     }   //  class ReverseServiceImplementation
 
     public static partial class Extensions

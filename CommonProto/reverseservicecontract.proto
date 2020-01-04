@@ -7,9 +7,17 @@ package proto;
 service RevService
 {
 	rpc Reverse(Data) returns (Data) {}
+	rpc GetHandpieceTypes(RequestHandpieces) returns (stream HandpieceType) {}
 }
 
 message Data
 {
 	string str = 1;
+}
+
+message RequestHandpieces {}
+
+message HandpieceType
+{
+	int32 gauge = 1;
 }
